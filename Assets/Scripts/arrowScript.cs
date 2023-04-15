@@ -7,7 +7,11 @@ public class arrowScript : MonoBehaviour
     public int damage;
     private void OnTriggerEnter(Collider other)
     {
-        // do something
-        Debug.Log("I am doing something");
+        enemyManager enemy_manager = other.transform.GetComponent<enemyManager>();
+        if (enemy_manager != null)
+        {
+            enemy_manager.Hit(damage);
+        }
+        Destroy(gameObject);
     }
 }
