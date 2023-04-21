@@ -6727,6 +6727,7 @@ MonoBehaviour:
   controller: {fileID: 1723797388}
   speed: 7
   gravity: -9.81
+  bowAnimator: {fileID: 919132149436760036}
   isGrounded: 0
   groundCheck: {fileID: 1161433089}
   groundDistance: 0.4
@@ -8101,6 +8102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653425526105}
   - component: {fileID: 1190040829}
+  - component: {fileID: 919132149436760036}
   m_Layer: 0
   m_Name: bow_Weapon
   m_TagString: Untagged
@@ -8108,6 +8110,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &919132149436760036
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149436760035}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 609d7f622dcff214995aaaff7fc28b98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &959595426669111869
 Transform:
   m_ObjectHideFlags: 0

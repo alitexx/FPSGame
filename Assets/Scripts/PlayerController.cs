@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     public float gravity = -9.81f;
 
+    public Animator bowAnimator;
+
     public bool isGrounded;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -33,15 +35,24 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = transform.right * inputX + transform.forward * inputY;
 
-        controller.Move(move * speed * Time.deltaTime);
+        if (move.x > 0.05 || move.z > 0.05)
+        {
+            bowAnimator.SetBool("isWalking", true);
+        }
 
+        controller.Move(move * speed * Time.deltaTime);
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            bowAnimator.SetBool("isJumping", true);
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }
+        if (move.x <= 0.05 || move.z <= 0.05)
+        {
+            bowAnimator.SetBool("isWalking", false);
         }
     }
 }
