@@ -34,11 +34,19 @@ public class enemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        NMA.destination = player.transform.position;
-        if(NMA.velocity.magnitude > 1)
+        if (Vector3.Distance(player.transform.position, transform.position) < 10)
         {
-            enemyAnimator.SetBool("Run Forward", true);
-            enemyAnimator.SetBool("Idle", false);
+            NMA.destination = player.transform.position;
+            if (NMA.velocity.magnitude > 1)
+            {
+                enemyAnimator.SetBool("Run Forward", true);
+                enemyAnimator.SetBool("Idle", false);
+            }
+            else
+            {
+                enemyAnimator.SetBool("Idle", true);
+                enemyAnimator.SetBool("Run Forward", false);
+            }
         }
         else
         {
