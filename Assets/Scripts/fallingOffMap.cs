@@ -6,9 +6,9 @@ public class fallingOffMap : MonoBehaviour
 {
     public GameObject LoseMenu;
     public GameObject gameplayGUIS;
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider col)
     {
-        if (collision.gameObject.name == "PLAYER")
+        if (col.gameObject.name == "PLAYER")
         {
             Time.timeScale = 0f;
             gameplayGUIS.SetActive(false);

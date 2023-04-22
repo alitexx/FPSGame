@@ -906,6 +906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684399654743917483}
   - component: {fileID: 6761815951617294189}
+  - component: {fileID: 2892867332406176480}
   m_Layer: 0
   m_Name: fleche
   m_TagString: Untagged
@@ -988,6 +989,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.20186739, y: 0.61202234, z: 0.7386483}
     m_Extent: {x: 0.055445686, y: 0.082264125, z: 0.53869927}
   m_DirtyAABB: 0
+--- !u!65 &2892867332406176480
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2876049883307961212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11089137, y: 0.16452825, z: 1.0773985}
+  m_Center: {x: 0.20071448, y: -0.19759399, z: 0.4128678}
 --- !u!1 &3018922079213834266
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,10 +14,13 @@ public class enemyManager : MonoBehaviour
 
     public void Hit(float damage)
     {
+        Debug.Log(damage);
+        Debug.Log(health);
         health -= damage;
         if (health <= 0)
         {
             // make a RAGDOLL EFFECT!!!!!!
+            globalVariables.bearsKilled++;
             Destroy(gameObject);
         }
     }

@@ -5,9 +5,12 @@ using UnityEngine;
 public class arrowScript : MonoBehaviour
 {
     public int damage;
-    private void OnTriggerEnter(Collider other)
+
+
+    void OnTriggerEnter(Collider col)
     {
-        enemyManager enemy_manager = other.transform.GetComponent<enemyManager>();
+        Debug.Log(col.gameObject.name);
+        enemyManager enemy_manager = col.transform.GetComponent<enemyManager>();
         if (enemy_manager != null)
         {
             enemy_manager.Hit(damage);

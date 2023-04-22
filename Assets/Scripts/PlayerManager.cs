@@ -1,30 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
-    public float health = 100;
+    public float health = 50;
+
+    public GameObject LoseMenu;
+    public GameObject gameplayGUIS;
+    public TextMeshProUGUI healthTXT;
+    private bool playerCanTakeDMG = true;
 
     public void Hit(float damage)
     {
-        health -= damage;
-        if (health <= 0)
-        {
+        
+    }
 
+    IEnumerator damagePlayer()
+    {
+        if (playerCanTakeDMG == true)
+        {
+            playerCanTakeDMG = false;
+            health -= 10;
+            healthTXT.text = health.ToString();
+            if (health <= 0)
+            {
+                Time.timeScale = 0f;
+                gameplayGUIS.SetActive(false);
+                LoseMenu.SetActive(true);
+            }
+            yield return new WaitForSeconds(1.5f);
+            playerCanTakeDMG = true;
         }
     }
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (hit.gameObject.name ==  "Bear")
+        {
+            StartCoroutine(damagePlayer());
+        } else if (hit.gameObject.name == "deathZone")
+        {
+            Time.timeScale = 0f;
+            gameplayGUIS.SetActive(false);
+            LoseMenu.SetActive(true);
+        }
     }
 }
