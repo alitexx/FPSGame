@@ -402,13 +402,14 @@ GameObject:
   - component: {fileID: 108424255}
   - component: {fileID: 108424254}
   - component: {fileID: 108424253}
+  - component: {fileID: 108424256}
   m_Layer: 5
   m_Name: LoseScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &108424252
 RectTransform:
   m_ObjectHideFlags: 0
@@ -495,6 +496,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &108424256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108424251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55230a6501e856947b9d2e43e48cba08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defeatedTXT: {fileID: 0}
 --- !u!1 &116757878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,6 +1516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55230a6501e856947b9d2e43e48cba08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defeatedTXT: {fileID: 0}
 --- !u!114 &419557869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2674,6 +2689,7 @@ GameObject:
   - component: {fileID: 753512059}
   - component: {fileID: 753512058}
   - component: {fileID: 753512057}
+  - component: {fileID: 753512060}
   m_Layer: 5
   m_Name: WinScreen
   m_TagString: Untagged
@@ -2767,6 +2783,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &753512060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753512055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55230a6501e856947b9d2e43e48cba08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defeatedTXT: {fileID: 1176443004}
 --- !u!1 &798751238
 GameObject:
   m_ObjectHideFlags: 0
