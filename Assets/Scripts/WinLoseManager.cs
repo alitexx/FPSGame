@@ -9,6 +9,7 @@ public class WinLoseManager : MonoBehaviour
 
     private void Start()
     {
+        globalVariables.canPause = false;
         if (gameObject.name == "LoseScreen")
         {
             defeatedTXT.text = "Time Survived: " + (60 - Mathf.Round(globalVariables.timer)).ToString() + "\nBears Defeated: " + (globalVariables.bearsKilled).ToString();

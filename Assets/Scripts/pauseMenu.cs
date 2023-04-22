@@ -24,7 +24,8 @@ public class pauseMenu : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 1f;
+            globalVariables.canPause = true;
+            Time.timeScale = 1f;
                 Cursor.lockState = CursorLockMode.Locked;
             }
     }
