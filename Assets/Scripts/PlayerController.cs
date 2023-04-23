@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            bowAnimator.SetBool("isJumping", true);
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
         if (move.x <= 0.05 || move.z <= 0.05)

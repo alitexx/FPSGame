@@ -11,21 +11,18 @@ public class PlayerManager : MonoBehaviour
     public GameObject gameplayGUIS;
     public TextMeshProUGUI healthTXT;
     private bool playerCanTakeDMG = true;
-
-    public void Hit(float damage)
-    {
-        
-    }
-
-    IEnumerator damagePlayer()
+    public AudioSource getHit;
+    public IEnumerator damagePlayer()
     {
         if (playerCanTakeDMG == true)
         {
             playerCanTakeDMG = false;
+            getHit.Play();
             health -= 10;
             healthTXT.text = health.ToString();
             if (health <= 0)
             {
+                globalVariables.canPause = false;
                 Time.timeScale = 0f;
                 gameplayGUIS.SetActive(false);
                 LoseMenu.SetActive(true);
@@ -38,11 +35,13 @@ public class PlayerManager : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.name ==  "Bear")
+        //if (hit.gameObject.name ==  "Bear")
+        //{
+        //    StartCoroutine(damagePlayer());
+        //} 
+        if (hit.gameObject.name == "deathZone")
         {
-            StartCoroutine(damagePlayer());
-        } else if (hit.gameObject.name == "deathZone")
-        {
+            globalVariables.canPause = false;
             Time.timeScale = 0f;
             gameplayGUIS.SetActive(false);
             LoseMenu.SetActive(true);

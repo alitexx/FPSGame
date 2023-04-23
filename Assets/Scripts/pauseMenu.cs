@@ -8,7 +8,7 @@ public class pauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && globalVariables.canPause == true)
         {
             togglePause();
         }
@@ -16,11 +16,11 @@ public class pauseMenu : MonoBehaviour
     public void togglePause()
     {
             ui.SetActive(!ui.activeSelf);
-
             if (ui.activeSelf)
             {
                 Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.Confined;
+                globalVariables.canPause = false;
             }
             else
             {

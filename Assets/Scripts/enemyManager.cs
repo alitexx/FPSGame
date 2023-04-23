@@ -11,11 +11,10 @@ public class enemyManager : MonoBehaviour
     private NavMeshAgent NMA;
     private Animator enemyAnimator;
     public float health;
+    public AudioSource bearGrowl;
 
     public void Hit(float damage)
     {
-        Debug.Log(damage);
-        Debug.Log(health);
         health -= damage;
         if (health <= 0)
         {
@@ -37,9 +36,22 @@ public class enemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) < 10)
+        if (Vector3.Distance(player.transform.position, transform.position) < 20)
         {
             NMA.destination = player.transform.position;
+            if (Vector3.Distance(player.transform.position, transform.position) < 3)
+            {
+                NMA.destination = gameObject.transform.position;
+            }
+            if (Vector3.Distance(player.transform.position, transform.position) < 5)
+            {
+                bearGrowl.Play();
+                enemyAnimator.SetTrigger("Attack5");
+                enemyAnimator.SetBool("Idle", false);
+                enemyAnimator.SetBool("Run Forward", false);
+                StartCoroutine(stillInRange());
+                return;
+            }
             if (NMA.velocity.magnitude > 1)
             {
                 enemyAnimator.SetBool("Run Forward", true);
@@ -58,11 +70,12 @@ public class enemyManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    IEnumerator stillInRange()
     {
-        if (collision.gameObject == player)
+        yield return new WaitForSeconds(.75f);
+        if (Vector3.Distance(player.transform.position, transform.position) < 5)
         {
-            player.GetComponent<PlayerManager>().Hit(damage);
+            StartCoroutine(player.GetComponent<PlayerManager>().damagePlayer());
         }
     }
 }

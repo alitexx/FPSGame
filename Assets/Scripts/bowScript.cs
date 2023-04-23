@@ -14,6 +14,9 @@ public class bowScript : MonoBehaviour
     public Transform spawn;
     public Rigidbody arrowObj;
 
+    private float cooldownTime = 1.0f;
+    private bool canShoot = true;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -27,7 +30,7 @@ public class bowScript : MonoBehaviour
             _animator.SetBool("isCharging", true);
 
         } 
-        if (Input.GetKeyUp(fireButton))
+        if (Input.GetKeyUp(fireButton) && canShoot == true)
         {
             _animator.SetBool("isCharging", false);
             _animator.SetTrigger("Shoot");
@@ -40,7 +43,15 @@ public class bowScript : MonoBehaviour
             }
             arrow.AddForce(spawn.forward * _charge, ForceMode.Impulse);
             _charge = 0;
+            StartCoroutine(cooldown());
         }
+    }
+
+    IEnumerator cooldown()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(cooldownTime);
+        canShoot = true;
     }
 
 }
