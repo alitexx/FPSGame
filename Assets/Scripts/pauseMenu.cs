@@ -16,6 +16,7 @@ public class pauseMenu : MonoBehaviour
     public void togglePause()
     {
             ui.SetActive(!ui.activeSelf);
+            Cursor.visible = ui.activeSelf;
             if (ui.activeSelf)
             {
                 Time.timeScale = 0f;

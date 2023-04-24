@@ -32,6 +32,19 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void Hit(float damage)
+    {
+        health -= damage;
+        healthTXT.text = health.ToString();
+        if (health <= 0)
+        {
+            globalVariables.canPause = false;
+            Time.timeScale = 0f;
+            gameplayGUIS.SetActive(false);
+            LoseMenu.SetActive(true);
+        }
+    }
+
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {

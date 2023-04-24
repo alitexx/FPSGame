@@ -23,6 +23,9 @@ public class sceneManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
         }
+        globalVariables.bearsKilled = 0;
+        globalVariables.canPause = true;
+        globalVariables.timer = 60;
         SceneManager.LoadScene(sceneName);
     }
 }

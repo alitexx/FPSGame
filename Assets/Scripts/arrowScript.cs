@@ -22,13 +22,22 @@ public class arrowScript : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.gameObject.name);
         enemyManager enemy_manager = col.transform.GetComponent<enemyManager>();
         if (enemy_manager != null)
         {
             damageEnemy.Play();
             enemy_manager.Hit(damage);
         }
-        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        explosionScript explosion = collision.transform.GetComponent<explosionScript>();
+        if (explosion != null)
+        {
+            explosion.ExplosionDamage(5f);
+            Destroy(gameObject);
+        }
+        
     }
 }
