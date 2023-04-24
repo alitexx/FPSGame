@@ -16,6 +16,7 @@ public class bowScript : MonoBehaviour
 
     private float cooldownTime = 1.0f;
     private bool canShoot = true;
+    public AudioSource shootArrow;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class bowScript : MonoBehaviour
             {
                 _charge = chargeMax;
             }
+            shootArrow.Play();
             arrow.AddForce(spawn.forward * _charge, ForceMode.Impulse);
             _charge = 0;
             StartCoroutine(cooldown());

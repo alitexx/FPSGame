@@ -12,6 +12,7 @@ public class enemyManager : MonoBehaviour
     private Animator enemyAnimator;
     public float health;
     public AudioSource bearGrowl;
+    private manageRagdoll ragdollScript;
 
     public void Hit(float damage)
     {
@@ -20,7 +21,11 @@ public class enemyManager : MonoBehaviour
         {
             // make a RAGDOLL EFFECT!!!!!!
             globalVariables.bearsKilled++;
-            Destroy(gameObject);
+            enemyAnimator.SetBool("Idle", false);
+            enemyAnimator.SetBool("Run Forward", false);
+            ragdollScript.enabled = true;
+            NMA.enabled = false;
+            gameObject.GetComponent<enemyManager>().enabled = false;
         }
     }
 
@@ -31,6 +36,7 @@ public class enemyManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         NMA = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
+        ragdollScript = GetComponent<manageRagdoll>();
     }
 
     // Update is called once per frame
