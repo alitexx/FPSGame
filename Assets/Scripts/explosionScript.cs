@@ -6,6 +6,7 @@ public class explosionScript : MonoBehaviour
 {
     // Start is called before the first frame update
     private ParticleSystem partSys;
+    public AudioSource explosion;
 
     public void ExplosionDamage(float radius)
     {
@@ -35,7 +36,7 @@ public class explosionScript : MonoBehaviour
 
     public IEnumerator countdown()
     {
-        gameObject.GetComponent<AudioSource>().Play();
+        explosion.Play();
         yield return new WaitForSeconds(.75f);
         Destroy(gameObject);
     }

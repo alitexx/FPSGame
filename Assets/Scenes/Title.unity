@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 362035043}
-  m_IndirectSpecularColor: {r: 1.1953471, g: 1.0187548, b: 0.7520058, a: 1}
+  m_IndirectSpecularColor: {r: 1.1952138, g: 1.0186969, b: 0.7519777, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1664,7 +1664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.5942, y: 0.00076294}
+  m_AnchoredPosition: {x: -6.1, y: 0.00076294}
   m_SizeDelta: {x: 227.12, y: 72.098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1563195714
@@ -1689,7 +1689,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Credits:
 
-    Programming: Katherine Tackett'
+    Programming: Katherine Tackett
+
+    Models: Blink, RensiCG,
+    OnurSezur, Zsky, CoinCoin'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1716,11 +1719,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.05
+  m_fontSize: 14.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 5
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -1752,7 +1755,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 12.003929, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1992,7 +1995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038147, y: -25.5866}
+  m_AnchoredPosition: {x: 0.0000038147, y: -21}
   m_SizeDelta: {x: 232.31, y: 324.5258}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972772385
@@ -2016,7 +2019,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Shoot bears with the left mouse button, and defeat as many as you can in
-    60 seconds! Use WASD to move, ESC to pause. It takes two shots to defeat a bear.
+    60 seconds! Use WASD to move, ESC to pause. It takes two shots to defeat a bear,
+    and shooting crates makes them explode. Crates damage you as well as bears.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2043,7 +2047,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.3
+  m_fontSize: 23.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

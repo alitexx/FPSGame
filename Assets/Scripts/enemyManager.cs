@@ -13,13 +13,15 @@ public class enemyManager : MonoBehaviour
     public float health;
     public AudioSource bearGrowl;
     private manageRagdoll ragdollScript;
+    private bool isAlive = true;
 
     public void Hit(float damage)
     {
         health -= damage;
-        if (health <= 0)
+        if (health <= 0 && isAlive == true)
         {
             // make a RAGDOLL EFFECT!!!!!!
+            isAlive = false;
             globalVariables.bearsKilled++;
             enemyAnimator.SetBool("Idle", false);
             enemyAnimator.SetBool("Run Forward", false);
