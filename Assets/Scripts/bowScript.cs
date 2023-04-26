@@ -25,27 +25,30 @@ public class bowScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(fireButton) && (_charge < chargeMax))
+        if (globalVariables.canPause == true)
         {
-            _charge += Time.deltaTime * chargeRate;
-            _animator.SetBool("isCharging", true);
-
-        } 
-        if (Input.GetKeyUp(fireButton) && canShoot == true)
-        {
-            _animator.SetBool("isCharging", false);
-            _animator.SetTrigger("Shoot");
-            Rigidbody arrow = Instantiate(arrowObj, spawn.position, Quaternion.identity) as Rigidbody;
-            arrow.gameObject.transform.rotation = gameObject.transform.rotation;
-            
-            if (_charge > chargeMax)
+            if (Input.GetKey(fireButton) && (_charge < chargeMax))
             {
-                _charge = chargeMax;
+                _charge += Time.deltaTime * chargeRate;
+                _animator.SetBool("isCharging", true);
+
             }
-            shootArrow.Play();
-            arrow.AddForce(spawn.forward * _charge, ForceMode.Impulse);
-            _charge = 0;
-            StartCoroutine(cooldown());
+            if (Input.GetKeyUp(fireButton) && canShoot == true)
+            {
+                _animator.SetBool("isCharging", false);
+                _animator.SetTrigger("Shoot");
+                Rigidbody arrow = Instantiate(arrowObj, spawn.position, Quaternion.identity) as Rigidbody;
+                arrow.gameObject.transform.rotation = gameObject.transform.rotation;
+
+                if (_charge > chargeMax)
+                {
+                    _charge = chargeMax;
+                }
+                shootArrow.Play();
+                arrow.AddForce(spawn.forward * _charge, ForceMode.Impulse);
+                _charge = 0;
+                StartCoroutine(cooldown());
+            }
         }
     }
 

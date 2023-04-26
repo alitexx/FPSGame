@@ -54,9 +54,12 @@ public class enemyManager : MonoBehaviour
             if (Vector3.Distance(player.transform.position, transform.position) < 5)
             {
                 bearGrowl.Play();
-                enemyAnimator.SetTrigger("Attack5");
                 enemyAnimator.SetBool("Idle", false);
                 enemyAnimator.SetBool("Run Forward", false);
+                if (!enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack5"))
+                {
+                    enemyAnimator.SetTrigger("Attack5");
+                }
                 StartCoroutine(stillInRange());
                 return;
             }

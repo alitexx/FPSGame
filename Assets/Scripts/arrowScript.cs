@@ -15,7 +15,7 @@ public class arrowScript : MonoBehaviour
 
     IEnumerator deleteSelf()
     {
-        yield return new WaitForSeconds(7.5f);
+        yield return new WaitForSeconds(3.5f);
         Destroy(gameObject);
     }
 
